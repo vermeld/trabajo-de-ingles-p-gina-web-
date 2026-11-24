@@ -54,6 +54,7 @@ function lower(text) {
 
 // Elige "a" o "an" según la primera letra: "a teacher", "an engineer"
 function article(word) {
+  if (/^(uni|use|eu)/i.test(word)) return "a";
   return /^[aeiou]/i.test(word) ? "an" : "a";
 }
 
@@ -168,7 +169,9 @@ function generate() {
   const marital = lower(document.getElementById("marital").value);
   // Si escriben "a teacher", quitamos el "a" porque lo agregamos nosotros
   const occupation = lower(document.getElementById("occupation").value).replace(/^(a|an)\s+/, "");
-  const workplace = titleCase(document.getElementById("workplace").value);
+  const workplace = titleCase(document.getElementById("workplace").value)
+    .replace(/^The /, "the ")
+    .replace(/^University of/, "the University of");
   const hobby = lower(document.getElementById("hobby").value);
   const subject = titleCase(document.getElementById("subject").value);
 
