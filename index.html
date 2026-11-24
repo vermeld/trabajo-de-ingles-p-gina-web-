@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Information Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Botón extra: cambiar entre tema claro y oscuro -->
+  <button type="button" id="themeBtn" class="theme-btn" title="Change theme">🌙 Dark mode</button>
+
+  <header>
+    <h1>Personal Information Generator</h1>
+    <p class="subtitle">Fill in all the fields below and press <strong>GENERATE</strong> (or the <strong>ENTER</strong> key) to create your personal introduction in English.</p>
+  </header>
+
+  <main>
+    <!-- novalidate: desactiva los mensajes del navegador (salen en español)
+         para mostrar nuestros propios mensajes de error en inglés -->
+    <form id="form" novalidate>
+
+      <!-- Mensaje general de error (oculto al principio) -->
+      <p id="formError" class="form-error" hidden></p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="e.g. John Smith">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="age">Age</label>
+          <input type="text" id="age" inputmode="numeric" maxlength="3" placeholder="e.g. 20">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="address">Address</label>
+          <input type="text" id="address" placeholder="e.g. 123 Main Street">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="e.g. Santiago">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <input type="text" id="country" placeholder="e.g. Chile">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="nationality">Nationality</label>
+          <input type="text" id="nationality" placeholder="e.g. Chilean">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="marital">Marital Status</label>
+          <input type="text" id="marital" placeholder="e.g. Single">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="occupation">Occupation</label>
+          <input type="text" id="occupation" placeholder="e.g. Student">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="workplace">Place of Occupation</label>
+          <input type="text" id="workplace" placeholder="e.g. University of Chile">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="hobby">Hobby</label>
+          <input type="text" id="hobby" placeholder="e.g. Playing football">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="subject">Favorite Subject</label>
+          <input type="text" id="subject" placeholder="e.g. Math">
+          <small class="error"></small>
+        </div>
+
+        <div class="field">
+          <label for="picture">Picture</label>
+          <!-- El input de archivo real está oculto; el label hace de botón -->
+          <input type="file" id="picture" accept="image/*" class="file-input">
+          <label for="picture" class="file-btn" tabindex="0">📷 Upload Picture</label>
+          <span id="fileName" class="file-name">No file selected</span>
+          <small class="error"></small>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" class="btn primary">GENERATE</button>
+        <button type="button" id="clearBtn" class="btn">CLEAR</button>
+      </div>
+    </form>
+
+    <!-- Aquí aparece el resultado (oculto hasta que todo esté completo) -->
+    <section id="result" class="card" hidden>
+      <div class="card-head">
+        <span>Personal Introduction</span>
+        <button type="button" id="copyBtn" class="btn small">📋 Copy text</button>
+      </div>
+      <div class="card-body">
+        <img id="photo" alt="Uploaded picture">
+        <p id="text"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

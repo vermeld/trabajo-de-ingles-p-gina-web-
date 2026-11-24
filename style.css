@@ -1,0 +1,251 @@
+/* ===== Colores (variables) — el tema oscuro solo cambia estos valores ===== */
+:root {
+  --bg: #f4efe6;
+  --panel: #fffdf8;
+  --text: #2b2a33;
+  --muted: #6d6a75;
+  --accent: #1f6f78;
+  --accent-dark: #17545b;
+  --border: #d9d2c5;
+  --error: #c0392b;
+}
+
+body.dark {
+  --bg: #1c1f26;
+  --panel: #262a33;
+  --text: #ecebf0;
+  --muted: #a3a1ad;
+  --accent: #4fb3bf;
+  --accent-dark: #3c9aa5;
+  --border: #3a3f4b;
+  --error: #ff6b5e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== Encabezado ===== */
+header {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== Formulario ===== */
+form {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--accent);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field > label:first-child {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+input[type="text"] {
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Campo con error */
+.field.invalid input[type="text"],
+.field.invalid .file-btn {
+  border-color: var(--error);
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.8rem;
+  min-height: 1em;
+  margin-top: 4px;
+}
+
+.form-error {
+  background: var(--error);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+
+/* ===== Botón para subir foto ===== */
+.file-input { display: none; }
+
+.file-btn {
+  padding: 10px 12px;
+  border: 1.5px dashed var(--accent);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.file-btn:hover { background: var(--bg); }
+
+.file-name {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== Botones ===== */
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover { background: var(--accent-dark); }
+.btn.small { padding: 6px 12px; font-size: 0.85rem; letter-spacing: 0; }
+
+.theme-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ===== Tarjeta de resultado ===== */
+.card {
+  margin-top: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-head .btn.small {
+  border-color: #fff;
+  color: #fff;
+}
+
+.card-body {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.card-body img {
+  width: 150px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid var(--border);
+  flex-shrink: 0;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Animación extra al mostrar el resultado */
+.card.show { animation: appear 0.6s ease; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Pantallas pequeñas ===== */
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .card-body { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+}
